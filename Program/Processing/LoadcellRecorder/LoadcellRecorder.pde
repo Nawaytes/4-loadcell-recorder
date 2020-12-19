@@ -20,6 +20,10 @@ color white_ = color(255, 255, 255), black_ = color(0, 0, 0), pink_ = color(255,
 
 float _LOADCELL1, _LOADCELL2, _LOADCELL3, _LOADCELL4;
 Button btn_single, btn_4graph, btn_calibrate, btn_graph, btn_record;
+Button btn_loadcell1, btn_loadcell2, btn_loadcell3, btn_loadcell4;
+Button btn_rst, btn_clbr;
+
+Textfield txt_actual_mass, txt_current_mass, txt_gain;
 int screen=0;
 void setup() {
   size(900, 600);
@@ -30,6 +34,7 @@ void setup() {
   setup_graph();
   setup_UART();
   setup_button();
+  setup_textfield();
 }
 
 void draw() {

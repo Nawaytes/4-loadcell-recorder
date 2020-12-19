@@ -24,12 +24,18 @@ void controlEvent(ControlEvent theControlEvent)
       img_master = loadImage("multi_graph.png");
     } else if (getID == 43) {
       hideAll();
-      
+      btn_loadcell1.setVisible(true);
+      btn_loadcell2.setVisible(true);
+      btn_loadcell3.setVisible(true);
+      btn_loadcell4.setVisible(true);
+      btn_rst.setVisible(true);
+      btn_clbr.setVisible(true);
+      txt_actual_mass.setVisible(true);
+      txt_current_mass.setVisible(true);
+      txt_gain.setVisible(true);
       img_master = loadImage("calibrate_loadcell.png");
     } else if (getID == 44) {
-      
     } else if (getID == 45) {
-      
     }
   }
 }
@@ -40,4 +46,13 @@ void hideAll() {
   graph_loadcell2.setVisible(false);
   graph_loadcell3.setVisible(false);
   graph_loadcell4.setVisible(false);
+  btn_loadcell1.setVisible(false);
+  btn_loadcell2.setVisible(false);
+  btn_loadcell3.setVisible(false);
+  btn_loadcell4.setVisible(false);
+  btn_rst.setVisible(false);
+  btn_clbr.setVisible(false);
+  txt_actual_mass.setVisible(false);
+  txt_current_mass.setVisible(false);
+  txt_gain.setVisible(false);
 }
