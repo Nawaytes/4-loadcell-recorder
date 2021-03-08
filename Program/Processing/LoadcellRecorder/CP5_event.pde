@@ -15,6 +15,9 @@ void controlEvent(ControlEvent theControlEvent)
       hideAll();
       graph_master.setVisible(true);
       img_master = loadImage("bg.png");
+      if (serial_conect!=0)
+        serial.write("{\"id\":1}");
+      println("{\"id\":1}");
     } else if (getID == 42) {
       hideAll();
       graph_loadcell1.setVisible(true);
@@ -22,6 +25,9 @@ void controlEvent(ControlEvent theControlEvent)
       graph_loadcell3.setVisible(true);
       graph_loadcell4.setVisible(true);
       img_master = loadImage("multi_graph.png");
+      if (serial_conect!=0)
+        serial.write("{\"id\":1}");
+      println("{\"id\":1}");
     } else if (getID == 43) {
       hideAll();
       btn_loadcell1.setVisible(true);
@@ -34,8 +40,29 @@ void controlEvent(ControlEvent theControlEvent)
       txt_current_mass.setVisible(true);
       txt_gain.setVisible(true);
       img_master = loadImage("calibrate_loadcell.png");
+      if (serial_conect!=0){
+        serial.write("{\"id\":5,\"lc\":1}");
+        txt_gain.setValue("1232");
+      }
+      println("{\"id\":5,\"lc\":1}");
     } else if (getID == 44) {
     } else if (getID == 45) {
+    } else if (getID == 51) {
+      if (serial_conect!=0)
+        serial.write("{\"id\":5,\"lc\":1}");
+      println("{\"id\":5,\"lc\":1}");
+    } else if (getID == 52) {
+      if (serial_conect!=0)
+        serial.write("{\"id\":5,\"lc\":2}");
+      println("{\"id\":5,\"lc\":2}");
+    } else if (getID == 53) {
+      if (serial_conect!=0)
+        serial.write("{\"id\":5,\"lc\":3}");
+      println("{\"id\":5,\"lc\":3}");
+    } else if (getID == 54) {
+      if (serial_conect!=0)
+        serial.write("{\"id\":5,\"lc\":4}");
+      println("{\"id\":5,\"lc\":4}");
     }
   }
 }

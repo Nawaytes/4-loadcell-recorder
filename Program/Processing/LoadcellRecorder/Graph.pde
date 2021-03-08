@@ -2,7 +2,7 @@ void setup_graph() {
   graph_master = cp5.addChart("loadcell_master")
     .setPosition(22, 118)
     .setSize(686, 368)
-    .setRange(0, 10000)
+    .setRange(0, 100000)
     .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
     ;
   graph_master.getColor().setBackground(color(#003366));
@@ -11,6 +11,18 @@ void setup_graph() {
   graph_master.addDataSet("loadcell_m1");
   graph_master.setColors("loadcell_m1", color(yellow_), color(yellow_));
   graph_master.updateData("loadcell_m1", new float[1000]);
+  
+  graph_master.addDataSet("loadcell_m2");
+  graph_master.setColors("loadcell_m2", color(green_), color(green_));
+  graph_master.updateData("loadcell_m2", new float[1000]);
+  
+  graph_master.addDataSet("loadcell_m3");
+  graph_master.setColors("loadcell_m3", color(blue_), color(blue_));
+  graph_master.updateData("loadcell_m3", new float[1000]);
+  
+  graph_master.addDataSet("loadcell_m4");
+  graph_master.setColors("loadcell_m4", color(pink_), color(pink_));
+  graph_master.updateData("loadcell_m4", new float[1000]);
   //--------------------------------------------------------------------------------------------------
   
   graph_loadcell1 = cp5.addChart("graph_loadcell_1")

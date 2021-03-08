@@ -13,7 +13,7 @@ String shortifyPortName(String portName, int maxlen)
 
 void setup_UART()
 { 
-  
+
   //Comport List Selection                   
   commListbox = cp5.addListBox("portComList", posxcom+5, posycom+85, 150, 240); // make a listbox and populate it with the available comm ports
   commListbox.setCaptionLabel("PORT COM");
@@ -74,19 +74,37 @@ void InitSerial(float portValue)
     serial_conect=0;
   }
 }
-
+int x = 0;
 void serialEvent (Serial usbPort) 
 {
+
   try {
     String usbString = usbPort.readStringUntil ('\n');
 
     if (usbString != null) 
     {
       usbString = trim(usbString);
-      //println(usbString); //--> for debuging
+      json = parseJSONObject(usbString);
+      println(usbString); //--> for debuging
+
+
+      int id = json.getInt("id");
+      if (id == 1) {
+        _LOADCELL1 = json.getFloat("l1");
+        _LOADCELL2 = json.getFloat("l2");
+        _LOADCELL3 = json.getFloat("l3");
+        _LOADCELL4 = json.getFloat("l4");
+        graph_master.push("loadcell_m1", _LOADCELL1);
+        graph_master.push("loadcell_m2", _LOADCELL2);
+        graph_master.push("loadcell_m3", _LOADCELL3);
+        graph_master.push("loadcell_m4", _LOADCELL4);
+      }else if(id == 5){
+       txt_gain.setValue(String.valueOf(json.getFloat("gain"))); 
+       txt_current_mass.setValue(String.valueOf(json.getFloat("mass")));
+      }
     }
 
-    float data[] = float(split(usbString, ','));
+    //float data[] = float(split(usbString, ','));
     //for (int sensorNum = 1; sensorNum < data.length; sensorNum++) { println(sensorNum + " " + data[sensorNum]);  } //--> for debuging
     /*
     Format paket
@@ -99,14 +117,14 @@ void serialEvent (Serial usbPort)
     //VOLUME_=data[0];
     // exhale_time=data[4];
 
-    if (data[0] == 59)
-    {
-      _LOADCELL1 = data[1];
-      _LOADCELL2 = data[2];
-      _LOADCELL3 = data[3];
-      _LOADCELL4 = data[4];
-      println(_LOADCELL1);
-    }
+    //if (data[0] == 59)
+    //{
+    //  _LOADCELL1 = data[1];
+    //  _LOADCELL2 = data[2];
+    //  _LOADCELL3 = data[3];
+    //  _LOADCELL4 = data[4];
+    //  println(_LOADCELL1);
+    //}
   }
   catch(RuntimeException e)
   {

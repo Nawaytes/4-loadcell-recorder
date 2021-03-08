@@ -6,3 +6,8 @@
 #define SCK3 9
 #define DT4  10
 #define SCK4 11
+
+#define SENDALL 200
+#define CALIBRATE 201
+#define RECORD 202
+#define PAUSE 203
