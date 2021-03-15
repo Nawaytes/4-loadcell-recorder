@@ -35,7 +35,7 @@ void setup_button() {
     ;
   btn_calibrate.getColor().setBackground(color(#993B85, 8))
     ;
-  btn_calibrate.setCaptionLabel("Calibrate")
+  btn_calibrate.setCaptionLabel("Zero")
     ;
 
   btn_graph = cp5.addButton("btn_graph")
@@ -47,7 +47,7 @@ void setup_button() {
     ;
   btn_graph.getColor().setBackground(color(#993B85, 8))
     ;
-  btn_graph.setCaptionLabel("Pause")
+  btn_graph.setCaptionLabel("stop")
     ;
 
   btn_record = cp5.addButton("btn_record")
@@ -135,7 +135,7 @@ void setup_button() {
 
   btn_clbr = cp5.addButton("btn_exe_calibrate")
     .setValue(0)
-    .setId(54)
+    .setId(56)
     .setPosition(654, 386)
     .setSize(144, 63)
     .setFont(createFont("verdana", 16))

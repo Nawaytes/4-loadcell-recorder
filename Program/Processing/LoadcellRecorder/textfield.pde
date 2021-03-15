@@ -23,6 +23,7 @@ void setup_textfield() {
     .setFont(createFont("verdana", 30))
     .setAutoClear(false)
     .setCaptionLabel(" ")
+    .setUpdate(true);
     ;
   txt_gain.setVisible(false);
 }
