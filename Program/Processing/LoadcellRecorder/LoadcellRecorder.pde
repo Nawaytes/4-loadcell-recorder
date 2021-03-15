@@ -2,7 +2,7 @@ import processing.serial.Serial; // serial library
 import controlP5.*; // controlP5 library
 
 JSONObject json;
-
+Table table;
 Serial serial;
 ControlP5 cp5;
 PImage img_master, img_multiG, img_calibrate;
@@ -29,6 +29,10 @@ Textfield txt_actual_mass, txt_current_mass, txt_gain;
 
 int lc_idx = 0;
 int screen=0;
+
+boolean is_recording = false;
+float sum_loadcell;
+long alpha_millis;
 void setup() {
   size(900, 600);
   img_master=loadImage("bg.png");
@@ -45,4 +49,11 @@ void draw() {
   background(img_master);
   //graph_master.push("loadcell_m1", _LOADCELL1);
   Send_To_Arduino();
+  textSize(25);
+  textAlign(CENTER);
+  text(_LOADCELL1, 804, 155);
+  text(_LOADCELL2, 804, 229);
+  text(_LOADCELL3, 804, 302);
+  text(_LOADCELL4, 804, 376);
+  text(sum_loadcell, 804, 449);
 }

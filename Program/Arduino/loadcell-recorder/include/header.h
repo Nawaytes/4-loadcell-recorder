@@ -11,3 +11,4 @@
 #define CALIBRATE 201
 #define RECORD 202
 #define PAUSE 203
+#define SENDSUM 203

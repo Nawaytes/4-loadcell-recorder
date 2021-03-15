@@ -2,7 +2,7 @@ void setup_graph() {
   graph_master = cp5.addChart("loadcell_master")
     .setPosition(22, 118)
     .setSize(686, 368)
-    .setRange(0, 100000)
+    .setRange(0, 10000)
     .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
     ;
   graph_master.getColor().setBackground(color(#003366));
@@ -26,8 +26,8 @@ void setup_graph() {
   //--------------------------------------------------------------------------------------------------
   
   graph_loadcell1 = cp5.addChart("graph_loadcell_1")
-    .setPosition(49, 118)
-    .setSize(315, 180)
+    .setPosition(22, 118)
+    .setSize(686, 368)
     .setRange(0, 10000)
     .setView(Chart.LINE) // use Chart.LINE, Chart.PIE, Chart.AREA, Chart.BAR_CENTERED
     ;

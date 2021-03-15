@@ -26,5 +26,4 @@ void setup_textfield() {
     .setUpdate(true);
     ;
   txt_gain.setVisible(false);
-   txt_gain.setValue("123");
 }

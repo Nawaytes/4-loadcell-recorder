@@ -98,9 +98,23 @@ void serialEvent (Serial usbPort)
         graph_master.push("loadcell_m2", _LOADCELL2);
         graph_master.push("loadcell_m3", _LOADCELL3);
         graph_master.push("loadcell_m4", _LOADCELL4);
-      }else if(id == 5){
-       txt_gain.setValue(String.valueOf(json.getFloat("gain"))); 
-       txt_current_mass.setValue(String.valueOf(json.getFloat("mass")));
+        sum_loadcell = _LOADCELL1 + _LOADCELL2 + _LOADCELL3 + _LOADCELL4;
+        graph_loadcell1.push("loadcell_1", sum_loadcell);
+
+        
+
+        if (is_recording == true) {
+          TableRow newRow = table.addRow();
+          newRow.setLong("time", millis() - alpha_millis);
+          newRow.setFloat("lc1", _LOADCELL1);
+          newRow.setFloat("lc2", _LOADCELL2);
+          newRow.setFloat("lc3", _LOADCELL3);
+          newRow.setFloat("lc4", _LOADCELL4);
+        }
+      } else if (id == 5) {
+        lc_idx = json.getInt("lc");
+        txt_gain.setValue(String.valueOf(json.getFloat("gain"))); 
+        txt_current_mass.setValue(String.valueOf(json.getFloat("mass")));
       }
     }
 
